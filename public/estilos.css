@@ -1,0 +1,30 @@
+/* Una hoja de estilos define reglas. Cada regla tiene una
+  * estructura como esta:
+  *    selector {atributo1: valor1; atributo2: valor2; ...}
+  * la sección entre { y } se conoce como bloque de declaraciones.
+  *
+  * Los atributos y sus valores definen la apariencia de los element
+  * que coinciden con los selectores.
+  *
+  * body {font-family: sans-serif}
+  * El tipo de selector más simple es el nombre de un element. La
+  * regla se aplica a todas las veces que aparezca ese element en la
+  * página. En este caso se selecciona el element body.
+  *
+  * font-family: sans-serif
+  * Se un font predefinido por el navegador web que tenga la
+  * característica sans-serifa (sin serifas o remates).
+  * Las serifas o remates son pequeños adornos que se ponen en los
+  * extremos de las líneas de los caracteres.
+  * Ejemplos de fonts con serifa son: Times New Roman, Times,
+  * Garamond y Courier. Se aplican principalmente a textos largos y
+  * párrafos.
+  * Ejemplos de fonts sin serifa son: Arial y Helvética. Se aplican
+  * principalmente en textos cortos e interfaces de usuario.
+  * El atributo font-family se hereda a casi todo el contenido del
+  * element indicado por el selector. En este caso es a casi toda la
+  * página. */
+
+body {
+  font-family: sans-serif
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Todos los archivos HTML 5 empiezan con la línea de arriba.
+  Esta estructura es un comentario y normalmente explica una sección de
+  código.
+  Las páginas HTML están formadas por estructuras como las siguientes:
+  * Element con contenido: usan una etiqueta inicial, una etiqueta final y
+   un contenido. Tienen una estructura como la siguiente:
+  <element atributo1="valor1" atributo2="valor2">
+    contenido
+  </element>
+  * Element sin contenido: solo usan una etiqueta inicial y tienen una
+   estructura como la siguiente:
+  <element atributo1="valor1" atributo2="valor2">
+  * Texto
+  * Comentarios como este
+  element se refiere al tipo de información que representa la estructura,
+  como pueden ser entre otros:
+    * html: para la estructura completa de una página
+    * h1: el título de una página
+    * p: un párrafo de texto
+  
+  Los atributos son características de un element a las que se les asocia
+  un valor. Los atributos son opcionales y no hay límite al número de
+  ellos que puede contener la etiqueta inicial, aunque en los ejemplos
+  anteriores sólo se hayan puesto 2.
+  Algunos atributos son boolean y solo se pone el nombre, sin su valor,
+  lo cual significa que esa característica si aplica para el element.
+  El contenido de un element son otros element, texto y comentarios. -->
+<html>
+  <head>
+    <!-- Se indica que la codificación es UTF-8. Ver http://unicode.org/ -->
+    <meta charset="utf-8">
+
+    <!-- Para mostrar la página en dispositivos móviles.
+    name="viewport"
+    Define las características de la pantalla de un dispositivo móvil.
+    
+    width=device-width
+    El tamaño del viewport es el equivalente al ancho de la pantalla en
+    píxeles CSS en una escala de 100%.
+    
+    initial-scale=1
+    Inicia sin hacer zoom. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Texto que se muestra en el título de la ventana o en la pestaña
+    del navegador.-->
+    <title>404 - Página no Encontrada</title>
+
+    <!-- Usa el archivo "estilos.css" como hoja de estilos.-->
+    <link rel="stylesheet" href="estilos.css">
+  </head>
+  <body>
+    <!-- Encabezado de la página. -->
+    <h1>404 - Página no Encontrada</h1>
+    <p>
+      El archivo especificado no se encontró en el sitio.
+      Revisar que la URL no tenga errores e intentar otra vez.
+    </p>
+    <footer>Copyright &copy; 2020 Ricardo Armando Machorro Reyes.</footer>
+  </body>
+</html>

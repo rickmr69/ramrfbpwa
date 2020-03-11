@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo de PWA</title>
+    <script>
+      //@ts-check - indica a VS Code que valide este script.
+      /* Registra un service worker para instalar la aplicación en el
+       * caché del navegador. No se espera a que termine el registro y pasa a la
+       * siguiente instrucción, que es "let app = firebase.app();". */
+      registraServiceWorker();
+      /** Registra un service worker para instalar la aplicación en el
+       * caché del navegador. */
+      async function registraServiceWorker() {
+        if ("serviceWorker" in navigator) {
+          try {
+            // Registra el service worker y espera que termine.
+            const registro = await navigator.serviceWorker.register("sw.js");
+            // Registro correcto y se muestra en la consola.
+            console.log("Service Worker registrado.");
+            console.log(registro);
+          } catch (e) {
+            // Hubo un error en el registro.
+            muestraError(e);
+          }
+        }
+      }
+      /** Procesa una excepción y muestra un mensaje de error.
+       * @param {Error} e descripción del error. */
+      function muestraError(e) {
+        console.log(e);
+        // @ts-ignore
+        mensaje.value = e.message;
+      }
+    </script>
+    <!-- Ícono para la página web. Debe ponerse en la raíz de la página. -->
+    <link rel="icon" sizes="32x32" href="favicon.ico">
+
+    <!-- Color de la barra de navegación de Chrome. -->
+    <meta name="theme-color" content="#ffcb2d">
+
+    <!-- Configuración de la PWA: Chrome y Edge. -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Configuración para Web Clip en Safari. -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="2048x2048" href="img/icono-2048.png">
+    <link rel="apple-touch-startup-image" sizes="2048x2048"
+      href="img/icono-2048.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="estilos.css">
+
+    <script src="/__/firebase/7.9.1/firebase-app.js"></script>
+    <!-- Sarga los módulos requeridos por la aplicación sin el atributo defer.
+    -->
+    <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
+    <script src="/__/firebase/7.9.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.9.1/firebase-storage.js"></script>
+    <!-- inicializa el SDK después de cargar todas las características. -->
+    <script src="/__/firebase/init.js"></script>
+  </head>
+  <body>
+    <h1>Ejemplo de PWA</h1>
+    <p>
+      <output id="mensaje">
+        <progress max="100">Cargando Firebase SDK&hellip;</progress>
+      </output>
+    </p>
+    <footer>Copyright &copy; 2020 Ricardo Armando Machorro Reyes.</footer>
+    <script>
+      //@ts-check
+      try {
+        // @ts-ignore
+        let app = firebase.app();
+        let features = ["auth", "firestore", "storage"]
+          .filter(feature => typeof app[feature] === "function");
+        // @ts-ignore
+        mensaje.value = `Firebase SDK cargó con: ${features.join(', ')}`;
+      } catch (e) {
+        muestraError(e);
+      }
+    </script>
+  </body>
+</html>
